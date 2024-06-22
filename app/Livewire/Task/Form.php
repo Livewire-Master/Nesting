@@ -13,7 +13,10 @@ class Form extends Component
 
     public function addTask(): void
     {
-        $this->tasks[] = $this->task;
+        $this->tasks[] = [
+            'title' => $this->task,
+            'is_done' => false
+        ];
         $this->reset('task');
     }
 }

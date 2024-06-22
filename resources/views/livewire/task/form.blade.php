@@ -19,7 +19,21 @@
 
     <ul>
         @foreach($tasks as $taskItem)
-            <x-task.item :title="$taskItem"/>
+            <livewire:task.item
+                wire:key="task-item-{{ $loop->index }}"
+                :task="$taskItem"
+            />
+        @endforeach
+    </ul>
+
+    <hr>
+
+    <ul>
+        @foreach($tasks as $taskItem)
+            <livewire:task.item
+                wire:key="base-task-item-{{ $loop->index }}"
+                :task="$taskItem"
+            />
         @endforeach
     </ul>
 </div>
