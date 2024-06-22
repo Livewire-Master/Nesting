@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class Item extends Component
 {
+    public int $task_index;
     public string $title;
     public bool $is_done;
 
@@ -17,6 +18,7 @@ class Item extends Component
 
     public function toggle(): void
     {
+        $this->dispatch('toggle-task', task_index: $this->task_index);
         $this->is_done = !$this->is_done;
     }
 }

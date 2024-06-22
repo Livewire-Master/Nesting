@@ -18,10 +18,11 @@
     </form>
 
     <ul>
-        @foreach($tasks as $taskItem)
+        @foreach($tasks as $taskIndex => $taskItem)
             <livewire:task.item
                 wire:key="task-item-{{ $loop->index }}"
                 :task="$taskItem"
+                :task_index="$taskIndex"
             />
         @endforeach
     </ul>
@@ -29,11 +30,8 @@
     <hr>
 
     <ul>
-        @foreach($tasks as $taskItem)
-            <livewire:task.item
-                wire:key="base-task-item-{{ $loop->index }}"
-                :task="$taskItem"
-            />
+        @foreach($tasks as $taskIndex => $taskItem)
+            <li>{{ json_encode($taskItem) }}</li>
         @endforeach
     </ul>
 </div>
