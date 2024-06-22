@@ -3,6 +3,15 @@
         My Username: {{ $username }}
     </h4>
 
+    <livewire:task.stat
+        :tasks="$tasks"
+    />
+
+    <x-task.item.stat
+        :tasks="$tasks"
+    />
+    <hr>
+
     <form wire:submit.prevent="addTask">
         <div>
             <label for="input-task">
